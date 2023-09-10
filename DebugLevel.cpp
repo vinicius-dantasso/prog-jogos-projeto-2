@@ -8,8 +8,9 @@ Scene* DebugLevel::scene = nullptr;
 void DebugLevel::Init()
 {
 	scene = new Scene();
-
+	gun = new Gun(SMG);
 	scene->Add(DungeonGame::player, MOVING);
+	scene->Add(gun, MOVING);
 }
 
 void DebugLevel::Finalize()

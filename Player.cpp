@@ -11,6 +11,7 @@
 
 #include "Player.h"
 #include "DungeonGame.h"
+#include "DebugLevel.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -36,7 +37,7 @@ Player::Player()
     vSpd = 0.0f;
 
     // posição inicial
-    MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
+    MoveTo(window->CenterX(), window->CenterY(), Layer::FRONT);
 }
 
 // ---------------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Player::~Player()
     delete anim;
     delete tileset;
     delete script;
+    //delete gun;
 }
 
 // ---------------------------------------------------------------------------------

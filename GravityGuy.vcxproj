@@ -165,6 +165,7 @@
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="DungeonGame.cpp" />
+    <ClCompile Include="Gun.cpp" />
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Level1.cpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scripts.cpp" />
+    <ClCompile Include="Shot.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -194,6 +196,7 @@
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="DungeonGame.h" />
+    <ClInclude Include="Gun.h" />
     <ClInclude Include="Home.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Level1.h" />
@@ -203,6 +206,7 @@
     <ClInclude Include="Resources.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scripts.h" />
+    <ClInclude Include="Shot.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="stb_image.h" />

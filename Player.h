@@ -19,20 +19,22 @@
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
 #include "Scripts.h"
+//#include "Gun.h"
 
 // ---------------------------------------------------------------------------------
 
 class Player : public Object
 {
 private:
-    TileSet   * tileset;                // folha de sprites do personagem
-    Animation * anim;                   // animação do personagem
+    TileSet   * tileset;                 // folha de sprites do personagem
+    Animation * anim;                    // animação do personagem
     Scripts   * script;
-    float       spd;                    // Velocidade Geral
-    float       hSpd;                   // Velocidade Horizontal
-    float       vSpd;                   // Velocidade Vertical
-    int         level;                  // nível finalizado
-    
+    //Gun * gun = nullptr;               // Arma Equipada do Player
+    float       spd;                     // Velocidade Geral
+    float       hSpd;                    // Velocidade Horizontal
+    float       vSpd;                    // Velocidade Vertical
+    int         level;                   // nível finalizado
+     
 public:
     Player();                           // construtor
     ~Player();                          // destrutor

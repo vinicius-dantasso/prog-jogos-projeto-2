@@ -29,6 +29,7 @@ class DungeonGame : public Game
 {
 private:
     static Game * level;            // nível atual do jogo
+   
 
 public:
     static Player * player;         // jogador 
