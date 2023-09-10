@@ -18,6 +18,7 @@ Player::Player()
 {
     tileset = new TileSet("Resources/Player.png", 32, 32, 1, 1);
     anim = new Animation(tileset, 0.120f, true);
+    script = new Scripts();
 
     // cria bounding box
     BBox(new Rect(
@@ -43,7 +44,8 @@ Player::Player()
 Player::~Player()
 {
     delete anim;
-    delete tileset;    
+    delete tileset;
+    delete script;
 }
 
 // ---------------------------------------------------------------------------------

@@ -18,6 +18,7 @@
 #include "Types.h"                      // tipos específicos da engine
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
+#include "Scripts.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -26,6 +27,7 @@ class Player : public Object
 private:
     TileSet   * tileset;                // folha de sprites do personagem
     Animation * anim;                   // animação do personagem
+    Scripts   * script;
     float       spd;                    // Velocidade Geral
     float       hSpd;                   // Velocidade Horizontal
     float       vSpd;                   // Velocidade Vertical
