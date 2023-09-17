@@ -28,3 +28,13 @@ float Scripts::point_direction(float x1, float y1, float x2, float y2)
 
 	return angle;
 }
+
+int Scripts::sign(float value)
+{
+	if (value < 0)
+		return -1;
+	else if (value > 0)
+		return 1;
+	else
+		return 0;
+}

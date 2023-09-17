@@ -2,6 +2,9 @@
 #include "WorldBuilder.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#include "DebugLevel.h"
+#include "DungeonGame.h"
+#include "Wall.h"
 
 WorldBuilder::WorldBuilder(const char* path)
 {
@@ -19,9 +22,18 @@ WorldBuilder::WorldBuilder(const char* path)
 				)
 			{
 				// Cor Branca Adicionar ...
-				// Ao instanciar um objeto no mapa, sempre multiplicar
-				// xx e yy por 32
+				Wall* wall = new Wall(xx * 32, yy * 32);
+				DebugLevel::scene->Add(wall, STATIC);
 
+			}
+
+			if (image[3 * (xx + (yy * width))] == 255
+				&& image[3 * (xx + (yy * width)) + 1] == 0
+				&& image[3 * (xx + (yy * width)) + 2] == 0
+				)
+			{
+				// Cor Vermelha Adicionar ...
+				DungeonGame::player->MoveTo(xx * 32, yy * 32);
 			}
 
 		}

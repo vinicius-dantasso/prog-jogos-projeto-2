@@ -18,7 +18,7 @@
 #include "Types.h"                      // tipos específicos da engine
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
-#include "Scripts.h"
+#include "Font.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ class Player : public Object
 private:
     TileSet   * tileset;                // folha de sprites do personagem
     Animation * anim;                   // animação do personagem
-    Scripts   * script;
+    Font* font;
     float       spd;                    // Velocidade Geral
     float       hSpd;                   // Velocidade Horizontal
     float       vSpd;                   // Velocidade Vertical
@@ -39,6 +39,7 @@ public:
 
     void Reset();                       // volta ao estado inicial
     int Level();                        // último nível finalizado
+    void WallCollision(Object * obj);
 
     void OnCollision(Object * obj);     // resolução da colisão
     void Update();                      // atualização do objeto
@@ -50,9 +51,6 @@ public:
 
 inline int Player::Level()
 { return level; }
-
-inline void Player::Draw()
-{ anim->Draw(x, y, z); }
 
 // ---------------------------------------------------------------------------------
 
