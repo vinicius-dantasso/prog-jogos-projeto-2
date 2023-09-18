@@ -2,9 +2,15 @@
 #include "Wall.h"
 #include "DungeonGame.h"
 
-Wall::Wall(float posX, float posY)
+Wall::Wall(float posX, float posY, int types)
 {
-	sprite = new Sprite("Resources/Wall.png");
+	spriteType = types;
+	switch (spriteType)
+	{
+	case 0: sprite = new Sprite("Resources/Wall.png"); break;
+	case 1: sprite = new Sprite("Resources/Teto3.png"); break;
+	}
+
 	type = WALL;
 
 	BBox(new Rect(
@@ -28,5 +34,9 @@ void Wall::Update()
 
 void Wall::Draw()
 {
-	sprite->Draw(x, y, z);
+	switch (spriteType)
+	{
+	case 0: sprite->Draw(x, y, Layer::BACK); break;
+	case 1: sprite->Draw(x, y, Layer::FRONT); break;
+	}
 }

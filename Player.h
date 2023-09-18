@@ -31,6 +31,8 @@ private:
     float       spd;                    // Velocidade Geral
     float       hSpd;                   // Velocidade Horizontal
     float       vSpd;                   // Velocidade Vertical
+    int         hDir;                   // Direção Horizontal
+    int         vDir;                   // Direção Vertical
     int         level;                  // nível finalizado
     
 public:

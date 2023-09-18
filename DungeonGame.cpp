@@ -88,7 +88,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura o motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(640, 480);
+    engine->window->Size(1280, 720);
     engine->window->Color(0, 0, 0);
     engine->window->Title("Dungeon Crawler");
     engine->window->Icon(IDI_ICON);

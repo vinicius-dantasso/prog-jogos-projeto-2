@@ -5,6 +5,7 @@
 #include "WorldBuilder.h"
 
 Scene* DebugLevel::scene = nullptr;
+WorldBuilder* world = nullptr;
 
 void DebugLevel::Init()
 {
@@ -12,13 +13,14 @@ void DebugLevel::Init()
 
 	scene->Add(DungeonGame::player, MOVING);
 
-	WorldBuilder * world = new WorldBuilder("Resources/DebugMap.png");
+	world = new WorldBuilder("Resources/DebugMap.png");
 }
 
 void DebugLevel::Finalize()
 {
 	scene->Remove(DungeonGame::player, MOVING);
 	delete scene;
+	delete world;
 }
 
 void DebugLevel::Update()

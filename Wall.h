@@ -6,13 +6,16 @@
 #include "Object.h"
 #include "Sprite.h"
 
+enum WallType {PAREDE, TETO};
+
 class Wall : public Object
 {
 private:
 	Sprite* sprite = nullptr;
+	int spriteType;
 
 public:
-	Wall(float posX, float posY);
+	Wall(float posX, float posY, int types);
 	~Wall();
 
 	void Update();
