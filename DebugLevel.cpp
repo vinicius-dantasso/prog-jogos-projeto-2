@@ -3,6 +3,7 @@
 #include "DungeonGame.h"
 #include "Player.h"
 #include "WorldBuilder.h"
+#include "Pistol.h"
 
 Scene* DebugLevel::scene = nullptr;
 WorldBuilder* world = nullptr;
@@ -12,6 +13,8 @@ void DebugLevel::Init()
 	scene = new Scene();
 
 	scene->Add(DungeonGame::player, MOVING);
+	
+	scene->Add(DungeonGame::pistol, STATIC);
 
 	world = new WorldBuilder("Resources/DebugMap.png");
 }

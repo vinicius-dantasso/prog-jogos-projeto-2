@@ -17,12 +17,14 @@
 #include "Game.h"
 #include "Audio.h"
 #include "Player.h"
+#include "Pistol.h"
+#include "Bullet.h"
 #include "Resources.h"
 
 // ------------------------------------------------------------------------------
 
 enum Sounds {MENU, MUSIC, TRANSITION};
-enum ObjectsToCollide {PLAYER, WALL};
+enum ObjectsToCollide {PLAYER, WALL, BULLET};
 
 // ------------------------------------------------------------------------------
 
@@ -32,7 +34,9 @@ private:
     static Game * level;            // nível atual do jogo
 
 public:
-    static Player * player;         // jogador 
+    static Player * player;         // jogador
+    static Pistol * pistol;         // arma
+    static Bullet * bullet;         // tiro
     static Audio * audio;           // sistema de áudio
     static bool viewBBox;           // estado da bounding box
 

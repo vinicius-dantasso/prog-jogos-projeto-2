@@ -20,6 +20,7 @@ Player::Player()
 {
     tileset = new TileSet("Resources/Player.png", 64, 64, 1, 1);
     anim = new Animation(tileset, 0.120f, true);
+    shadow = new Sprite("Resources/Player_Shadow.png");
     font = new Font("Resources/m5x7.png");
     font->Spacing(85);
 
@@ -46,6 +47,7 @@ Player::~Player()
     delete anim;
     delete tileset;
     delete font;
+    delete shadow;
 }
 
 // ---------------------------------------------------------------------------------
@@ -122,5 +124,6 @@ void Player::Update()
 
 void Player::Draw()
 {
+    shadow->Draw(x, y + 15, Layer::LOWER);
     anim->Draw(x, y, Layer::UPPER);
 }

@@ -21,6 +21,8 @@
 Game*   DungeonGame::level = nullptr;
 Player* DungeonGame::player = nullptr;
 Audio*  DungeonGame::audio = nullptr;
+Pistol* DungeonGame::pistol = nullptr;
+Bullet* DungeonGame::bullet = nullptr;
 bool    DungeonGame::viewBBox = false;
 
 // ------------------------------------------------------------------------------
@@ -40,6 +42,9 @@ void DungeonGame::Init()
 
     // cria jogador
     player = new Player();
+
+    // cria arma
+    pistol = new Pistol();
 
     // inicializa nível de abertura do jogo
     level = new DebugLevel();

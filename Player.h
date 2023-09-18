@@ -19,6 +19,7 @@
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
 #include "Font.h"
+#include "Sprite.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -27,7 +28,8 @@ class Player : public Object
 private:
     TileSet   * tileset;                // folha de sprites do personagem
     Animation * anim;                   // animação do personagem
-    Font* font;
+    Sprite    * shadow;
+    Font      * font;
     float       spd;                    // Velocidade Geral
     float       hSpd;                   // Velocidade Horizontal
     float       vSpd;                   // Velocidade Vertical
