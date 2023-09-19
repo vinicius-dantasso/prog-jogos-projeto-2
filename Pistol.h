@@ -4,11 +4,13 @@
 
 #include "Object.h"
 #include "Sprite.h"
+#include "Timer.h"
 
 class Pistol : public Object
 {
 private:
-	Sprite* sprite;
+	Sprite * sprite;
+	Timer  * timer;
 
 public:
 	Pistol();

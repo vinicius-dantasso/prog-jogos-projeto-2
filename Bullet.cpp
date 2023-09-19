@@ -8,7 +8,7 @@ Bullet::Bullet()
 {
 	sprite = new Sprite("Resources/Bullet.png");
 
-	spd = 300.0f;
+	spd = 500.0f;
 
 	BBox(new Rect(-4, -4, 4, 4));
 	MoveTo(DungeonGame::pistol->X(), DungeonGame::pistol->Y());
