@@ -3,18 +3,30 @@
 #define _PISTOL_H_
 
 #include "Object.h"
-#include "Sprite.h"
+#include "Animation.h"
 #include "Timer.h"
+
+enum PistolAnim {PISTOLLEFT,PISTOLRIGHT};
+enum PistolState {ITEM, HANDED};
 
 class Pistol : public Object
 {
 private:
-	Sprite * sprite;
-	Timer  * timer;
+	TileSet		* tile;
+	Animation	* anim;
+	Timer		* timer;
 
 public:
+	uint animState;
+	uint state;
+	int ammo;
+	bool item;
+
 	Pistol();
 	~Pistol();
+
+	void Handed();
+	void Item();
 
 	void Update();
 	void Draw();

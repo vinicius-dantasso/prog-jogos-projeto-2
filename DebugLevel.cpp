@@ -2,40 +2,42 @@
 #include "DebugLevel.h"
 #include "DungeonGame.h"
 #include "Player.h"
-#include "WorldBuilder.h"
 #include "Pistol.h"
+#include "Gui.h"
+#include "WorldBuilder.h"
 
-Scene* DebugLevel::scene = nullptr;
-WorldBuilder* world = nullptr;
+WorldBuilder * builder = nullptr;
 
 void DebugLevel::Init()
 {
-	scene = new Scene();
+	DungeonGame::scene = new Scene();
 
-	scene->Add(DungeonGame::player, MOVING);
+	DungeonGame::scene->Add(DungeonGame::player, MOVING);
 	
-	scene->Add(DungeonGame::pistol, STATIC);
+	DungeonGame::scene->Add(DungeonGame::pistol, STATIC);
 
-	world = new WorldBuilder("Resources/DebugMap.png");
+	DungeonGame::scene->Add(DungeonGame::gui, STATIC);
+
+	builder = new WorldBuilder("Resources/DebugMap.png");
 }
 
 void DebugLevel::Finalize()
 {
-	scene->Remove(DungeonGame::player, MOVING);
-	delete scene;
-	delete world;
+	DungeonGame::scene->Remove(DungeonGame::player, MOVING);
+	delete DungeonGame::scene;
+	delete builder;
 }
 
 void DebugLevel::Update()
 {
-	scene->Update();
-	scene->CollisionDetection();
+	DungeonGame::scene->Update();
+	DungeonGame::scene->CollisionDetection();
 }
 
 void DebugLevel::Draw()
 {
-	scene->Draw();
+	DungeonGame::scene->Draw();
 
 	if (DungeonGame::viewBBox)
-		scene->DrawBBox();
+		DungeonGame::scene->DrawBBox();
 }

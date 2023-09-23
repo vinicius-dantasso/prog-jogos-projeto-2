@@ -6,6 +6,8 @@
 #include "Object.h"
 #include "Sprite.h"
 
+enum BulletSprite {BULLETSHOT, MAGICSHOT};
+
 class Bullet : public Object
 {
 private:
@@ -17,7 +19,7 @@ private:
 	bool shot;
 
 public:
-	Bullet();
+	Bullet(float posX, float posY, int spriteType, int types);
 	~Bullet();
 
 	void Shot(bool canShot);

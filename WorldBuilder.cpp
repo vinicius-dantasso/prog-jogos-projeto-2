@@ -2,10 +2,14 @@
 #include "WorldBuilder.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-#include "DebugLevel.h"
 #include "DungeonGame.h"
 #include "Wall.h"
 #include "Floor.h"
+#include "Trap.h"
+#include "Bee.h"
+#include "Mage.h"
+#include "BugHole.h"
+#include "Bug.h"
 
 WorldBuilder::WorldBuilder(const char* path)
 {
@@ -22,9 +26,31 @@ WorldBuilder::WorldBuilder(const char* path)
 				&& image[3 * (xx + (yy * width)) + 2] == 255
 				)
 			{
-				// Cor Branca Adicionar ...
-				Wall* wall1 = new Wall(xx * 32, yy * 32, TETO);
-				DebugLevel::scene->Add(wall1, STATIC);
+				// TETO COLISÃO HORIZONTAL
+				Wall* wall1 = new Wall(xx * 32.0f, yy * 32.0f, TETO, HWALL);
+				DungeonGame::scene->Add(wall1, STATIC);
+			}
+
+			if (image[3 * (xx + (yy * width))] == 255
+				&& image[3 * (xx + (yy * width)) + 1] == 255
+				&& image[3 * (xx + (yy * width)) + 2] == 188
+				)
+			{
+				// TETO COLISÃO VERTICAL
+				Wall* wall1 = new Wall(xx * 32.0f, yy * 32.0f, TETO, VWALL);
+				DungeonGame::scene->Add(wall1, STATIC);
+			}
+
+			if (image[3 * (xx + (yy * width))] == 188
+				&& image[3 * (xx + (yy * width)) + 1] == 255
+				&& image[3 * (xx + (yy * width)) + 2] == 255
+				)
+			{
+				// MURO
+				Wall* wall = new Wall(xx * 32.0f, yy * 32.0f, MURO, WALL);
+				Floor* floor = new Floor(xx * 32.0f, yy * 32.0f, LIMPO);
+				DungeonGame::scene->Add(wall, STATIC);
+				DungeonGame::scene->Add(floor, STATIC);
 			}
 
 			if (image[3 * (xx + (yy * width))] == 255
@@ -32,8 +58,19 @@ WorldBuilder::WorldBuilder(const char* path)
 				&& image[3 * (xx + (yy * width)) + 2] == 255
 				)
 			{
-				Wall* wall = new Wall(xx * 32, yy * 32, PAREDE);
-				DebugLevel::scene->Add(wall,STATIC);
+				// PAREDE COLISÃO VERTICAL
+				Wall* wall = new Wall(xx * 32.0f, yy * 32.0f, PAREDE, VWALL);
+				DungeonGame::scene->Add(wall,STATIC);
+			}
+
+			if (image[3 * (xx + (yy * width))] == 188
+				&& image[3 * (xx + (yy * width)) + 1] == 178
+				&& image[3 * (xx + (yy * width)) + 2] == 255
+				)
+			{
+				// PAREDE COM CERCA
+				Wall* wall = new Wall(xx * 32.0f, yy * 32.0f, CERCA, WALL);
+				DungeonGame::scene->Add(wall, STATIC);
 			}
 
 			if (image[3 * (xx + (yy * width))] == 76
@@ -41,17 +78,68 @@ WorldBuilder::WorldBuilder(const char* path)
 				&& image[3 * (xx + (yy * width)) + 2] == 0
 				)
 			{
-				Floor* floor = new Floor(xx * 32, yy * 32, LIMPO);
-				DebugLevel::scene->Add(floor, STATIC);
+				// CHÃO LIMPO
+				Floor* floor = new Floor(xx * 32.0f, yy * 32.0f, LIMPO);
+				DungeonGame::scene->Add(floor, STATIC);
+			}
+
+			if (image[3 * (xx + (yy * width))] == 76
+				&& image[3 * (xx + (yy * width)) + 1] == 170
+				&& image[3 * (xx + (yy * width)) + 2] == 0
+				)
+			{
+				// CHÃO PEDRA
+				Floor* floor = new Floor(xx * 32.0f, yy * 32.0f, PEDRA);
+				DungeonGame::scene->Add(floor, STATIC);
 			}
 
 			if (image[3 * (xx + (yy * width))] == 0
-				&& image[3 * (xx + (yy * width)) + 1] == 255
-				&& image[3 * (xx + (yy * width)) + 2] == 33
+				&& image[3 * (xx + (yy * width)) + 1] == 38
+				&& image[3 * (xx + (yy * width)) + 2] == 255
 				)
 			{
-				Floor* floor = new Floor(xx * 32, yy * 32, PEDRA);
-				DebugLevel::scene->Add(floor, STATIC);
+				// ARMADILHA DE ESPINHOS
+				Trap* trap = new Trap(xx * 32.0f, yy * 32.0f);
+				DungeonGame::scene->Add(trap, STATIC);
+			}
+
+			if (image[3 * (xx + (yy * width))] == 255
+				&& image[3 * (xx + (yy * width)) + 1] == 0
+				&& image[3 * (xx + (yy * width)) + 2] == 0
+				)
+			{
+				// INIMIGO ABELHA
+				Bee* bee = new Bee(xx * 32.0f, yy * 32.0f);
+				Floor* floor = new Floor(xx * 32.0f, yy * 32.0f, LIMPO);
+				DungeonGame::scene->Add(bee, MOVING);
+				DungeonGame::scene->Add(floor, STATIC);
+			}
+
+			if (image[3 * (xx + (yy * width))] == 255
+				&& image[3 * (xx + (yy * width)) + 1] == 100
+				&& image[3 * (xx + (yy * width)) + 2] == 0
+				)
+			{
+				// INIMIGO MAGO
+				Mage* mage = new Mage(xx * 32.0f, yy * 32.0f);
+				Floor* floor = new Floor(xx * 32.0f, yy * 32.0f, LIMPO);
+				DungeonGame::scene->Add(mage, MOVING);
+				DungeonGame::scene->Add(floor, STATIC);
+			}
+
+			if (image[3 * (xx + (yy * width))] == 255
+				&& image[3 * (xx + (yy * width)) + 1] == 0
+				&& image[3 * (xx + (yy * width)) + 2] == 125
+				)
+			{
+				// INIMIGO INSETO
+				Bug* bug = new Bug(xx * 32.0f, yy * 32.0f);
+				BugHole* bugHole = new BugHole(xx * 32.0f, yy * 32.0f);
+				Floor* floor = new Floor(xx * 32.0f, yy * 32.0f, LIMPO);
+
+				DungeonGame::scene->Add(bug, MOVING);
+				DungeonGame::scene->Add(bugHole, MOVING);
+				DungeonGame::scene->Add(floor, STATIC);
 			}
 
 		}

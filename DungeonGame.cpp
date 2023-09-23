@@ -11,9 +11,8 @@
 
 #include "Engine.h"
 #include "DungeonGame.h"
-#include "Home.h"
-#include "GameOver.h"
 #include "DebugLevel.h"
+#include "MenuScreen.h"
 
 // ------------------------------------------------------------------------------
 
@@ -23,6 +22,9 @@ Player* DungeonGame::player = nullptr;
 Audio*  DungeonGame::audio = nullptr;
 Pistol* DungeonGame::pistol = nullptr;
 Bullet* DungeonGame::bullet = nullptr;
+Scene*  DungeonGame::scene = nullptr;
+Gui* DungeonGame::gui = nullptr;
+int DungeonGame::floorNum = 0;
 bool    DungeonGame::viewBBox = false;
 
 // ------------------------------------------------------------------------------
@@ -46,8 +48,11 @@ void DungeonGame::Init()
     // cria arma
     pistol = new Pistol();
 
+    // cria interface do usuario
+    gui = new Gui();
+
     // inicializa nível de abertura do jogo
-    level = new DebugLevel();
+    level = new MenuScreen();
     level->Init();
 }
 

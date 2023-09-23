@@ -20,11 +20,14 @@
 #include "Pistol.h"
 #include "Bullet.h"
 #include "Resources.h"
+#include "Scene.h"
+#include "WorldBuilder.h"
+#include "Gui.h"
 
 // ------------------------------------------------------------------------------
 
 enum Sounds {MENU, MUSIC, TRANSITION};
-enum ObjectsToCollide {PLAYER, WALL, BULLET};
+enum ObjectsToCollide {PLAYER, WALL, HWALL, VWALL, BULLET, MAGIC, TRAP, ENEMY, BUGHOLE};
 
 // ------------------------------------------------------------------------------
 
@@ -38,6 +41,10 @@ public:
     static Pistol * pistol;         // arma
     static Bullet * bullet;         // tiro
     static Audio * audio;           // sistema de áudio
+    static Scene * scene;
+    static Gui * gui;
+
+    static int floorNum;
     static bool viewBBox;           // estado da bounding box
 
     void Init();                    // inicializa jogo
