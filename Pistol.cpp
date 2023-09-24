@@ -68,7 +68,7 @@ void Pistol::Handed()
 			ammo -= 1;
 			DungeonGame::bullet = new Bullet(x, y, BULLETSHOT, BULLET);
 			DungeonGame::bullet->Shot(true);
-			DungeonGame::scene->Add(DungeonGame::bullet, MOVING);
+			DungeonGame::sceneMain->Add(DungeonGame::bullet, MOVING);
 		}
 	}
 

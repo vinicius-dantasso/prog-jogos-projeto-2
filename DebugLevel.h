@@ -3,10 +3,13 @@
 #define _DEBUGLEVEL_H_
 
 #include "Game.h"
+#include "Scene.h"
 
 class DebugLevel : public Game
 {
 public:
+	static Scene* scene;
+
 	void Init();
 	void Finalize();
 	void Update();

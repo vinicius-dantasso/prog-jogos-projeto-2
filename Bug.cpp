@@ -68,15 +68,18 @@ void Bug::OnCollision(Object* obj)
 
 	if (obj->Type() == BUGHOLE && life <= 0)
 	{
-		DungeonGame::scene->Delete(this, MOVING);
-		DungeonGame::scene->Delete(obj, MOVING);
+		DungeonGame::sceneMain->Delete(this, MOVING);
+		DungeonGame::sceneMain->Delete(obj, MOVING);
+		DungeonGame::enemiesTotal--;
 	}
 
-	if (obj->Type() == BULLET && state != INSIDE)
+	if ((obj->Type() == BULLET || obj->Type() == BOMB) && state != INSIDE)
 	{
 		life -= 1;
 		animState = BUGHIT;
-		DungeonGame::scene->Delete(obj, MOVING);
+
+		if(obj->Type() != BOMB)
+			DungeonGame::sceneMain->Delete(obj, MOVING);
 	}
 }
 

@@ -23,11 +23,14 @@
 #include "Scene.h"
 #include "WorldBuilder.h"
 #include "Gui.h"
+#include "Bomb.h"
 
 // ------------------------------------------------------------------------------
 
 enum Sounds {MENU, MUSIC, TRANSITION};
-enum ObjectsToCollide {PLAYER, WALL, HWALL, VWALL, BULLET, MAGIC, TRAP, ENEMY, BUGHOLE};
+enum ObjectsToCollide {PLAYER, WALL, HWALL, VWALL, BULLET, 
+    MAGIC, TRAP, ENEMY, BUGHOLE, BOMB, 
+    DOORCLOSED, DOOROPENNED};
 
 // ------------------------------------------------------------------------------
 
@@ -41,10 +44,12 @@ public:
     static Pistol * pistol;         // arma
     static Bullet * bullet;         // tiro
     static Audio * audio;           // sistema de áudio
-    static Scene * scene;
+    static Scene * sceneMain;
     static Gui * gui;
+    static Bomb* bomb;
 
     static int floorNum;
+    static int enemiesTotal;
     static bool viewBBox;           // estado da bounding box
 
     void Init();                    // inicializa jogo

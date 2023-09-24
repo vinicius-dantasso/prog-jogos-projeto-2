@@ -52,12 +52,15 @@ private:
     int         maxFrames;
     int         life;
     int         maxLife;
+    int         bombTotal;
 
     bool        hit;
     
 public:
     uint state;
     uint animState;
+
+    bool goingTo;
 
     Player();                           // construtor
     ~Player();                          // destrutor
@@ -69,6 +72,7 @@ public:
     void Dash();
     int Life();
     int MaxLife();
+    int BombTotal();
 
     void OnCollision(Object * obj);     // resolução da colisão
     void Update();                      // atualização do objeto
@@ -86,6 +90,9 @@ inline int Player::Life()
 
 inline int Player::MaxLife()
 { return maxLife; }
+
+inline int Player::BombTotal()
+{ return bombTotal; }
 
 // ---------------------------------------------------------------------------------
 

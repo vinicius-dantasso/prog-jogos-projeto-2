@@ -2,6 +2,7 @@
 #include "Bee.h"
 #include "Scripts.h"
 #include "DungeonGame.h"
+#include "Bomb.h"
 
 Bee::Bee(float posX, float posY)
 {
@@ -66,7 +67,7 @@ void Bee::OnCollision(Object* obj)
 			MoveTo(x, obj->Y() - 32);
 	}
 
-	if (obj->Type() == BULLET)
+	if (obj->Type() == BULLET || obj->Type() == BOMB)
 	{
 		hit = true;
 		life -= 1;
@@ -80,7 +81,8 @@ void Bee::OnCollision(Object* obj)
 		else if (animState == BEERIGHT)
 			animState = BEEHITR;
 
-		DungeonGame::scene->Delete(obj, MOVING);
+		if(obj->Type() != BOMB)
+			DungeonGame::sceneMain->Delete(obj, MOVING);
 	}
 }
 
@@ -133,7 +135,10 @@ void Bee::Update()
 	anim->NextFrame();
 
 	if (life <= 0)
-		DungeonGame::scene->Delete(this, MOVING);
+	{
+		DungeonGame::sceneMain->Delete(this, MOVING);
+		DungeonGame::enemiesTotal--;
+	}
 }
 
 void Bee::Draw()

@@ -13,6 +13,7 @@ private:
 	Sprite* gun;
 	Sprite* ammo;
 	Sprite* heart;
+	Sprite* bombs;
 	Font* font;
 
 public:

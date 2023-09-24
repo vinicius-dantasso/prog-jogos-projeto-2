@@ -81,7 +81,7 @@ void Mage::OnCollision(Object* obj)
 	if (obj->Type() == WALL)
 		WallCollision(obj);
 
-	if (obj->Type() == BULLET)
+	if (obj->Type() == BULLET || obj->Type() == BOMB)
 	{
 		hit = true;
 		life -= 1;
@@ -95,7 +95,8 @@ void Mage::OnCollision(Object* obj)
 		else if (animState == MAGEMOVER || animState == MAGEIDLER || animState == MAGEATTR)
 			animState = MAGEHITR;
 
-		DungeonGame::scene->Delete(obj, MOVING);
+		if(obj->Type() != BOMB)
+			DungeonGame::sceneMain->Delete(obj, MOVING);
 	}
 }
 
@@ -166,7 +167,10 @@ void Mage::Update()
 	anim->NextFrame();
 
 	if (life <= 0)
-		DungeonGame::scene->Delete(this, MOVING);
+	{
+		DungeonGame::sceneMain->Delete(this, MOVING);
+		DungeonGame::enemiesTotal--;
+	}
 }
 
 void Mage::Draw()
@@ -200,7 +204,7 @@ void Mage::Attacking()
 		castCharge = 0;
 		DungeonGame::bullet = new Bullet(x, y, MAGICSHOT, MAGIC);
 		DungeonGame::bullet->Shot(true);
-		DungeonGame::scene->Add(DungeonGame::bullet, MOVING);
+		DungeonGame::sceneMain->Add(DungeonGame::bullet, MOVING);
 	}
 
 	if (Scripts::distance_to_object(this, DungeonGame::player) >= 500.0f)

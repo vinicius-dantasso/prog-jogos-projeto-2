@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "DungeonGame.h"
 #include "Scripts.h"
+#include "Bomb.h"
 #include <string>
 
 // ---------------------------------------------------------------------------------
@@ -52,6 +53,8 @@ Player::Player()
 
     dashDir = 0.0f;
     dashSpd = 500.0f;
+
+    bombTotal = 3;
 
     spd = 0.0f;
     hSpd = 0.0f;
@@ -199,6 +202,14 @@ void Player::Update()
         timer->Reset();
         hit = false;
         state = PLAYERMOVE;
+    }
+
+    if (bombTotal > 0 && window->KeyPress('G'))
+    {
+        DungeonGame::bomb = new Bomb(x, y, DROPPED);
+        DungeonGame::bomb->dir = Scripts::point_direction(x, y, window->MouseX(), window->MouseY());
+        DungeonGame::sceneMain->Add(DungeonGame::bomb, MOVING);
+        bombTotal -= 1;
     }
 
     switch (state)

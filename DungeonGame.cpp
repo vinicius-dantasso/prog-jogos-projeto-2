@@ -22,9 +22,11 @@ Player* DungeonGame::player = nullptr;
 Audio*  DungeonGame::audio = nullptr;
 Pistol* DungeonGame::pistol = nullptr;
 Bullet* DungeonGame::bullet = nullptr;
-Scene*  DungeonGame::scene = nullptr;
-Gui* DungeonGame::gui = nullptr;
-int DungeonGame::floorNum = 0;
+Scene*  DungeonGame::sceneMain = nullptr;
+Gui*    DungeonGame::gui = nullptr;
+Bomb*   DungeonGame::bomb = nullptr;
+int     DungeonGame::floorNum = 0;
+int     DungeonGame::enemiesTotal = 0;
 bool    DungeonGame::viewBBox = false;
 
 // ------------------------------------------------------------------------------

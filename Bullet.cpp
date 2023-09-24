@@ -26,10 +26,10 @@ Bullet::~Bullet()
 void Bullet::OnCollision(Object* obj)
 {
 	if (obj->Type() == HWALL || obj->Type() == VWALL || obj->Type() == WALL)
-		DungeonGame::scene->Delete(this, MOVING);
+		DungeonGame::sceneMain->Delete(this, MOVING);
 
 	if(type == MAGIC && obj->Type() == PLAYER)
-		DungeonGame::scene->Delete(this, MOVING);
+		DungeonGame::sceneMain->Delete(this, MOVING);
 }
 
 void Bullet::Update()
