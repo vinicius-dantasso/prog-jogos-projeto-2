@@ -42,7 +42,7 @@ void DungeonGame::Init()
     // cria sistema de áudio
     
     audio = new Audio();
-    audio->Add(MENU, "Resources/BossTheme.wav");
+    audio->Add(MUSIC, "Resources/BossTheme.wav");
     audio->Add(TRANSITION, "Resources/sfxTeste.wav");
     
     

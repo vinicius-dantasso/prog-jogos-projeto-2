@@ -27,7 +27,15 @@
 
 // ------------------------------------------------------------------------------
 
-enum Sounds {MENU, MUSIC, TRANSITION};
+enum Sounds {MENU, MUSIC, TRANSITION,
+    SHOTPLAYER, SHOTENEMY,
+    DOOR,
+    HITPLAYER,
+    HITENEMY,
+    DEAD
+    };
+
+
 enum ObjectsToCollide {PLAYER, WALL, HWALL, VWALL, BULLET, 
     MAGIC, TRAP, ENEMY, BUGHOLE, BOMB, 
     DOORCLOSED, DOOROPENNED, COIN};
