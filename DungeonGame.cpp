@@ -40,12 +40,14 @@ bool    DungeonGame::viewBBox = false;
 void DungeonGame::Init()
 {
     // cria sistema de áudio
-    /*
+    
     audio = new Audio();
-    audio->Add(MENU, "Resources/Menu.wav");
-    audio->Add(MUSIC, "Resources/Music.wav");
-    audio->Add(TRANSITION, "Resources/Transition.wav");
-    */
+    audio->Add(MENU, "Resources/BossTheme.wav");
+    audio->Add(TRANSITION, "Resources/sfxTeste.wav");
+    
+    
+    audio->Play(MENU, true);
+    
 
     // bounding box não visível
     viewBBox = false;

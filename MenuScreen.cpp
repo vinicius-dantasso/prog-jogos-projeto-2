@@ -19,8 +19,10 @@ void MenuScreen::Finalize()
 
 void MenuScreen::Update()
 {
-	if (window->KeyDown(VK_RETURN))
+	if (window->KeyDown(VK_RETURN)){
+		DungeonGame::audio->Play(TRANSITION, false);
 		DungeonGame::NextLevel<Level0>();
+	}
 
 	if (window->KeyDown(VK_ESCAPE))
 		window->Close();

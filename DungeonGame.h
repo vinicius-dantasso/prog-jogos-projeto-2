@@ -43,7 +43,8 @@ public:
     static Player * player;         // jogador
     static Pistol * pistol;         // arma
     static Bullet * bullet;         // tiro
-    static Audio * audio;           // sistema de áudio
+    static Audio  *  audio;          // músicas
+    
     static Scene * sceneMain;
     static Gui * gui;
     static Bomb* bomb;
