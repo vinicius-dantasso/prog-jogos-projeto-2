@@ -25,6 +25,7 @@ public:
 	Pistol();
 	~Pistol();
 
+	void Reset();
 	void Handed();
 	void Item();
 

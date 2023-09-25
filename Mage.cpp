@@ -168,6 +168,7 @@ void Mage::Update()
 
 	if (life <= 0)
 	{
+		Enemy::CoinDrop(this);
 		DungeonGame::sceneMain->Delete(this, MOVING);
 		DungeonGame::enemiesTotal--;
 	}

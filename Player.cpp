@@ -18,7 +18,7 @@
 // ---------------------------------------------------------------------------------
 Player::Player()
 {
-    tileset = new TileSet("Resources/Player.png", 64, 64, 4, 14);
+    tileset = new TileSet("Resources/Player.png", 64, 64, 4, 16);
     anim = new Animation(tileset, 0.120f, true);
     shadow = new Sprite("Resources/Player_Shadow.png");
 
@@ -34,6 +34,8 @@ Player::Player()
     uint SeqMovingLeft[4] = { 4,5,6,7 };
     uint SeqHitL[1] = { 13 };
     uint SeqHitR[1] = { 12 };
+    uint SeqDeadL[1] = { 14 };
+    uint SeqDeadR[1] = { 15 };
 
     anim->Add(IDLELEFT, SeqIdleLeft, 2);
     anim->Add(IDLERIGHT, SeqIdleRight, 2);
@@ -41,15 +43,17 @@ Player::Player()
     anim->Add(MOVINGRIGHT, SeqMovingRight, 4);
     anim->Add(HITL, SeqHitL, 1);
     anim->Add(HITR, SeqHitR, 1);
+    anim->Add(DEADL, SeqDeadL, 1);
+    anim->Add(DEADR, SeqDeadR, 1);
     
-    level = 0;
     type = PLAYER;
+    isDead = false;
 
     frames = 0;
     maxFrames = 10;
 
     life = 5;
-    maxLife = 3;
+    maxLife = 5;
 
     dashDir = 0.0f;
     dashSpd = 500.0f;
@@ -79,14 +83,25 @@ Player::~Player()
 }
 
 // ---------------------------------------------------------------------------------
-/*
+
 void Player::Reset()
 {
     // volta ao estado inicial
-    MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
-    level = 0;
+    state = PLAYERMOVE;
+    animState = IDLELEFT;
+
+    life = 5;
+    bombTotal = 3;
+    isDead = false;
+    hit = false;
+
+    DungeonGame::coinTotal = 0;
+    DungeonGame::floorNum = 0;
+    DungeonGame::pistol->Reset();
+
+    MoveTo(864.0f, 640.0f);
 }
-*/
+
 // ---------------------------------------------------------------------------------
 
 void Player::OnCollision(Object * obj)
@@ -110,7 +125,7 @@ void Player::OnCollision(Object * obj)
     if (obj->Type() == WALL)
         WallCollision(obj);
 
-    if ((obj->Type() == ENEMY || obj->Type() == MAGIC) && !hit)
+    if ((obj->Type() == ENEMY || obj->Type() == MAGIC) && !hit && state != PLAYERDEAD)
     {
         hit = true;
         life -= 1;
@@ -212,6 +227,9 @@ void Player::Update()
         bombTotal -= 1;
     }
 
+    if (DungeonGame::onShop)
+        OnShop();
+
     switch (state)
     {
     case PLAYERMOVE:
@@ -226,29 +244,30 @@ void Player::Update()
     case PLAYERDASH:
         hSpd = 0.0f;
         vSpd = 0.0f;
-
-        if(hDir > 0 && vDir > 0)
-            dashDir = Scripts::point_direction(x, y, x + 1.0f, y + 1.0f);
-        else if(hDir > 0 && vDir < 0)
-            dashDir = Scripts::point_direction(x, y, x + 1.0f, y - 1.0f);
-        else if(hDir < 0 && vDir > 0)
-            dashDir = Scripts::point_direction(x, y, x - 1.0f, y + 1.0f);
-        else if(hDir < 0 && vDir < 0)
-            dashDir = Scripts::point_direction(x, y, x - 1.0f, y - 1.0f);
-        else if (hDir > 0)
-            dashDir = Scripts::point_direction(x, y, x + 1.0f, y);
-        else if (hDir < 0)
-            dashDir = Scripts::point_direction(x, y, x - 1.0f, y);
-        else if (vDir > 0)
-            dashDir = Scripts::point_direction(x, y, x, y + 1.0f);
-        else if (vDir < 0)
-            dashDir = Scripts::point_direction(x, y, x, y - 1.0f);
-
         Dash();
+        break;
+
+    case PLAYERDEAD:
+        hSpd = 0.0f;
+        vSpd = 0.0f;
+
+        if (animState == IDLELEFT || animState == MOVINGLEFT || animState == HITL)
+            animState = DEADL;
+        else if (animState == IDLERIGHT || animState == MOVINGRIGHT || animState == HITR)
+            animState = DEADR;
+        
+        if (timer->Elapsed(5.0f))
+            isDead = true;
         break;
     }
 
     Translate(hSpd * gameTime, vSpd * gameTime);
+
+    if (life <= 0 && state != PLAYERDEAD)
+    {
+        timer->Reset();
+        state = PLAYERDEAD;
+    }
 
     // atualiza animação
     anim->Select(animState);
@@ -290,7 +309,38 @@ void Player::Hit()
 
 void Player::Dash()
 {
+    if (hDir > 0 && vDir > 0)
+        dashDir = Scripts::point_direction(x, y, x + 1.0f, y + 1.0f);
+    else if (hDir > 0 && vDir < 0)
+        dashDir = Scripts::point_direction(x, y, x + 1.0f, y - 1.0f);
+    else if (hDir < 0 && vDir > 0)
+        dashDir = Scripts::point_direction(x, y, x - 1.0f, y + 1.0f);
+    else if (hDir < 0 && vDir < 0)
+        dashDir = Scripts::point_direction(x, y, x - 1.0f, y - 1.0f);
+    else if (hDir > 0)
+        dashDir = Scripts::point_direction(x, y, x + 1.0f, y);
+    else if (hDir < 0)
+        dashDir = Scripts::point_direction(x, y, x - 1.0f, y);
+    else if (vDir > 0)
+        dashDir = Scripts::point_direction(x, y, x, y + 1.0f);
+    else if (vDir < 0)
+        dashDir = Scripts::point_direction(x, y, x, y - 1.0f);
+
     hit = true;
     hSpd = Scripts::lengthdir_x(dashSpd, dashDir);
     vSpd = Scripts::lengthdir_y(dashSpd, dashDir);
+}
+
+void Player::OnShop()
+{
+    if (Scripts::distance_to_object(this, DungeonGame::bomb) <= 60)
+    {
+        if (DungeonGame::bomb->state == BOMBITEM && window->KeyPress('F') && DungeonGame::coinTotal >= 30)
+        {
+            this->SetBombs(3);
+            DungeonGame::coinTotal -= 30;
+            DungeonGame::sceneMain->Delete(DungeonGame::bomb, MOVING);
+            DungeonGame::onShop = false;
+        }
+    }
 }

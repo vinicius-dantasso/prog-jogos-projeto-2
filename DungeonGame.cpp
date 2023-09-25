@@ -13,6 +13,10 @@
 #include "DungeonGame.h"
 #include "DebugLevel.h"
 #include "MenuScreen.h"
+#include "GameOver.h"
+#include "Level0.h"
+#include "Level1.h"
+#include "Shop.h"
 
 // ------------------------------------------------------------------------------
 
@@ -27,6 +31,8 @@ Gui*    DungeonGame::gui = nullptr;
 Bomb*   DungeonGame::bomb = nullptr;
 int     DungeonGame::floorNum = 0;
 int     DungeonGame::enemiesTotal = 0;
+int     DungeonGame::coinTotal = 0;
+bool    DungeonGame::onShop = false;
 bool    DungeonGame::viewBBox = false;
 
 // ------------------------------------------------------------------------------

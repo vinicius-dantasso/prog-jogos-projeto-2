@@ -160,6 +160,7 @@
     <ClCompile Include="Bug.cpp" />
     <ClCompile Include="BugHole.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -167,10 +168,12 @@
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="DungeonGame.cpp" />
     <ClCompile Include="Gui.cpp" />
+    <ClCompile Include="Heart.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Level0.cpp" />
     <ClCompile Include="Level1.cpp" />
@@ -182,6 +185,7 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scripts.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Sign.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -201,6 +205,7 @@
     <ClInclude Include="Bug.h" />
     <ClInclude Include="BugHole.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="Bee.h" />
     <ClInclude Include="Door.h" />
@@ -209,10 +214,12 @@
     <ClInclude Include="Floor.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="DungeonGame.h" />
     <ClInclude Include="Gui.h" />
+    <ClInclude Include="Heart.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Level0.h" />
     <ClInclude Include="Level1.h" />
@@ -225,6 +232,7 @@
     <ClInclude Include="Resources.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scripts.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="Sign.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Sprite.h" />

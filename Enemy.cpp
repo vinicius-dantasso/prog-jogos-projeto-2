@@ -1,14 +1,16 @@
 
 #include "Enemy.h"
 #include "DungeonGame.h"
+#include "Coin.h"
 #include <random>
 using namespace std;
 
 random_device rd;
 mt19937 mt(rd());
-uniform_int_distribution<int> difference(1, 2);
+uniform_int_distribution<int> difference(1, 10);
 uniform_int_distribution<int> choose(0, 1);
 uniform_int_distribution<int> timerRange(1, 5);
+uniform_int_distribution<int> coinsToDrop(0, 4);
 
 Enemy::Enemy()
 {
@@ -122,6 +124,17 @@ void Enemy::WallCollision(Object * obj)
 			MoveTo(x, obj->Y() - 32);
 		else if (y + tile->TileHeight() / 2.0f >= obj->Y() - 16 && y - tile->TileHeight() / 2.0f <= obj->Y() - 16)
 			MoveTo(x, obj->Y() + 32);
+	}
+}
+
+void Enemy::CoinDrop(Object * obj)
+{
+	int coinsDropped = coinsToDrop(mt);
+
+	for (int i = 1; i <= coinsDropped; i++)
+	{
+		Coin* coin = new Coin(obj->X() + ((i -1) * difference(mt)), obj->Y() + ((i - 1) * difference(mt)));
+		DungeonGame::sceneMain->Add(coin, STATIC);
 	}
 }
 

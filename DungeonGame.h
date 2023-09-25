@@ -30,7 +30,7 @@
 enum Sounds {MENU, MUSIC, TRANSITION};
 enum ObjectsToCollide {PLAYER, WALL, HWALL, VWALL, BULLET, 
     MAGIC, TRAP, ENEMY, BUGHOLE, BOMB, 
-    DOORCLOSED, DOOROPENNED};
+    DOORCLOSED, DOOROPENNED, COIN};
 
 // ------------------------------------------------------------------------------
 
@@ -50,6 +50,8 @@ public:
 
     static int floorNum;
     static int enemiesTotal;
+    static int coinTotal;
+    static bool onShop;
     static bool viewBBox;           // estado da bounding box
 
     void Init();                    // inicializa jogo

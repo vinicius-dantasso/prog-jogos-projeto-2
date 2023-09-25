@@ -17,6 +17,7 @@ Bomb::Bomb(float posX, float posY, int initialState)
 
 	anim->Add(DROPPED, SeqDrop, 1);
 	anim->Add(EXPLOSION, SeqExplosion, 71);
+	anim->Add(BOMBITEM, SeqDrop, 1);
 
 	spd = 200.0f;
 	hSpd = 0.0f;
@@ -63,6 +64,7 @@ void Bomb::Update()
 	switch (state)
 	{
 	case BOMBITEM:
+		Item();
 		break;
 
 	case BOMBDELAY:
@@ -87,7 +89,7 @@ void Bomb::Update()
 
 void Bomb::Draw()
 {
-	anim->Draw(x, y, Layer::UPPER);
+	anim->Draw(x, y, Layer::FRONT);
 }
 
 void Bomb::Dropped(float dir)
@@ -116,3 +118,6 @@ void Bomb::Explosion()
 	if (anim->Inactive())
 		DungeonGame::sceneMain->Delete(this, MOVING);
 }
+
+void Bomb::Item()
+{}

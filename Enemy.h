@@ -34,6 +34,8 @@ public:
 	Enemy();
 	virtual ~Enemy();
 
+	static void CoinDrop(Object * obj);
+
 	virtual void ChooseState();
 	virtual void Wandering();
 	virtual void Attacking();

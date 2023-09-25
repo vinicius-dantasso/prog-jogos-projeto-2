@@ -27,6 +27,7 @@ public:
 	Bomb(float posX, float posY, int initialState);
 	~Bomb();
 
+	void Item();
 	void Dropped(float dir);
 	void Explosion();
 	void Delay();

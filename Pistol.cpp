@@ -100,3 +100,10 @@ void Pistol::Item()
 			state = HANDED;
 	}
 }
+
+void Pistol::Reset()
+{
+	state = ITEM;
+	ammo = 20;
+	MoveTo(window->CenterX() + 225.0f, window->CenterY() - 50.0f);
+}

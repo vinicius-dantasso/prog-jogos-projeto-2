@@ -2,6 +2,7 @@
 #include "Bug.h"
 #include "Scripts.h"
 #include "DungeonGame.h"
+#include "Enemy.h"
 
 Bug::Bug(float posX, float posY)
 {
@@ -68,6 +69,7 @@ void Bug::OnCollision(Object* obj)
 
 	if (obj->Type() == BUGHOLE && life <= 0)
 	{
+		Enemy::CoinDrop(this);
 		DungeonGame::sceneMain->Delete(this, MOVING);
 		DungeonGame::sceneMain->Delete(obj, MOVING);
 		DungeonGame::enemiesTotal--;

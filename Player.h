@@ -24,7 +24,7 @@
 
 // ---------------------------------------------------------------------------------
 
-enum AnimationState {IDLELEFT,IDLERIGHT,MOVINGLEFT,MOVINGRIGHT,HITL,HITR};
+enum AnimationState {IDLELEFT,IDLERIGHT,MOVINGLEFT,MOVINGRIGHT,HITL,HITR, DEADL,DEADR};
 enum PlayerState {PLAYERMOVE,PLAYERHIT, PLAYERDEAD, PLAYERDASH};
 
 class Player : public Object
@@ -46,7 +46,6 @@ private:
 
     int         hDir;                   // Direção Horizontal
     int         vDir;                   // Direção Vertical
-    int         level;                  // nível finalizado
     int         lastHdir;
     int         frames;
     int         maxFrames;
@@ -61,15 +60,18 @@ public:
     uint animState;
 
     bool goingTo;
+    bool isDead;
 
     Player();                           // construtor
     ~Player();                          // destrutor
 
-    //void Reset();                       // volta ao estado inicial
-    int Level();                        // último nível finalizado
+    void Reset();                       // volta ao estado inicial
     void WallCollision(Object * obj);
     void Hit();
     void Dash();
+    void SetBombs(int bombs);
+    void OnShop();
+    void SetLife(int lifes);
     int Life();
     int MaxLife();
     int BombTotal();
@@ -82,9 +84,6 @@ public:
 // ---------------------------------------------------------------------------------
 // Função Membro Inline
 
-inline int Player::Level()
-{ return level; }
-
 inline int Player::Life()
 { return life; }
 
@@ -93,6 +92,12 @@ inline int Player::MaxLife()
 
 inline int Player::BombTotal()
 { return bombTotal; }
+
+inline void Player::SetBombs(int bombs)
+{ bombTotal += bombs; }
+
+inline void Player::SetLife(int lifes)
+{ life += lifes; }
 
 // ---------------------------------------------------------------------------------
 

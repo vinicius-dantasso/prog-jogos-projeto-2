@@ -2,6 +2,8 @@
 #include "Level0.h"
 #include "DungeonGame.h"
 #include "Level1.h"
+#include "GameOver.h"
+#include "Coin.h"
 
 Scene* Level0::scene = nullptr;
 
@@ -55,6 +57,12 @@ void Level0::Update()
 	{
 		// Caso Player esteja indo para próximo nível
 		DungeonGame::NextLevel<Level1>();
+	}
+	else if (DungeonGame::player->isDead)
+	{
+		// Caso Player morra
+		DungeonGame::NextLevel<GameOver>();
+		DungeonGame::player->Reset();
 	}
 	else
 	{

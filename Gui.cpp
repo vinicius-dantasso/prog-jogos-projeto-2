@@ -10,6 +10,7 @@ Gui::Gui()
 	ammo = new Sprite("Resources/Ammo.png");
 	heart = new Sprite("Resources/Heart.png");
 	bombs = new Sprite("Resources/Bomb2.png");
+	coin = new Sprite("Resources/Coin.png");
 
 	font = new Font("Resources/m5x7.png");
 	font->Spacing(85);
@@ -23,6 +24,7 @@ Gui::~Gui()
 	delete gun;
 	delete ammo;
 	delete heart;
+	delete coin;
 	delete font;
 }
 
@@ -39,6 +41,7 @@ void Gui::Draw()
 	Color white(1.0f, 1.0f, 1.0f, 1.0f);
 	std::string level = std::to_string(DungeonGame::floorNum);
 	std::string bomb = std::to_string(DungeonGame::player->BombTotal());
+	std::string coins = std::to_string(DungeonGame::coinTotal);
 
 	font->Draw(250.0f, 200.0f, level, black, Layer::FRONT, 0.8f);
 
@@ -55,4 +58,7 @@ void Gui::Draw()
 
 	bombs->Draw(75.0f, 650.0f, Layer::FRONT);
 	font->Draw(120.0f, 680.0f, bomb, white, Layer::FRONT, 0.3f);
+
+	coin->Draw(215.0f, 655.0f, Layer::FRONT,0.7f);
+	font->Draw(260.0f, 680.0f, coins, white, Layer::FRONT, 0.3f);
 }

@@ -136,6 +136,7 @@ void Bee::Update()
 
 	if (life <= 0)
 	{
+		Enemy::CoinDrop(this);
 		DungeonGame::sceneMain->Delete(this, MOVING);
 		DungeonGame::enemiesTotal--;
 	}
@@ -144,7 +145,7 @@ void Bee::Update()
 void Bee::Draw()
 {
 	Color white(1.0f, 1.0f, 1.0f, 1.0f);
-	anim->Draw(x, y, Layer::UPPER);
+	anim->Draw(x, y, Layer::FRONT);
 }
 
 void Bee::Hit()

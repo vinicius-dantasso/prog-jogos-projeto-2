@@ -5,7 +5,6 @@
 #include "Object.h"
 #include "Types.h"
 #include "Animation.h"
-#include "Font.h"
 
 enum DoorState {DOORCLOSE, DOOROPEN};
 
@@ -14,7 +13,6 @@ class Door : public Object
 private:
 	TileSet* tile;
 	Animation* anim;
-	Font* font;
 
 public:
 	uint state;
