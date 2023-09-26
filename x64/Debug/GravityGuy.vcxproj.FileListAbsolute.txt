@@ -1,1 +1,2 @@
 C:\Users\Galdino\source\repos\Nova pasta\prog-jogos-projeto-2\x64\Debug\GravityGuy.exe
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\x64\Debug\GravityGuy.exe

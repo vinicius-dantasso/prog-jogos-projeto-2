@@ -1,4 +1,7 @@
-﻿  Player.cpp
-C:\Users\Galdino\source\repos\Nova pasta\prog-jogos-projeto-2\Player.cpp(177,12): warning C4804: '-': uso não seguro de tipo 'bool' em operação
-C:\Users\Galdino\source\repos\Nova pasta\prog-jogos-projeto-2\Player.cpp(178,12): warning C4804: '-': uso não seguro de tipo 'bool' em operação
-  GravityGuy.vcxproj -> C:\Users\Galdino\source\repos\Nova pasta\prog-jogos-projeto-2\x64\Debug\GravityGuy.exe
+﻿  Level0.cpp
+  Level1.cpp
+  Level2.cpp
+  Level3.cpp
+  Level4.cpp
+  Level5.cpp
+  GravityGuy.vcxproj -> C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\x64\Debug\GravityGuy.exe

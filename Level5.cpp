@@ -46,6 +46,11 @@ void Level5::Update()
 		DungeonGame::NextLevel<Shop>();
 
 	}
+	else if (window->KeyPress('L'))
+	{
+		DungeonGame::enemiesTotal = 0;
+		DungeonGame::NextLevel<Shop>();
+	}
 	else if (DungeonGame::player->isDead)
 	{
 		DungeonGame::NextLevel<GameOver>();

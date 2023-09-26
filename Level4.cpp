@@ -2,6 +2,7 @@
 #include "GameOver.h"
 #include "Level4.h"
 #include "Level5.h"
+#include "Shop.h"
 
 Scene* Level4::scene = nullptr;
 
@@ -45,6 +46,11 @@ void Level4::Update()
 		// Caso Player esteja indo para próximo nível 
 		DungeonGame::NextLevel<Level5>();
 
+	}
+	else if (window->KeyPress('L'))
+	{
+		DungeonGame::enemiesTotal = 0;
+		DungeonGame::NextLevel<Shop>();
 	}
 	else if (DungeonGame::player->isDead)
 	{

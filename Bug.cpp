@@ -115,6 +115,12 @@ void Bug::Update()
 		}
 	}
 
+	if (y > window->Height())
+	{
+		DungeonGame::sceneMain->Delete(this, MOVING);
+		DungeonGame::enemiesTotal--;
+	}
+
 	anim->Select(animState);
 	anim->NextFrame();
 }
