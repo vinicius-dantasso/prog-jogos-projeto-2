@@ -10,7 +10,7 @@ mt19937 mt(rd());
 uniform_int_distribution<int> difference(1, 10);
 uniform_int_distribution<int> choose(0, 1);
 uniform_int_distribution<int> timerRange(1, 5);
-uniform_int_distribution<int> coinsToDrop(0, 4);
+uniform_int_distribution<int> coinsToDrop(0, 3);
 
 Enemy::Enemy()
 {

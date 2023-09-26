@@ -97,6 +97,7 @@ void Player::Reset()
 
     DungeonGame::coinTotal = 0;
     DungeonGame::floorNum = 0;
+    DungeonGame::enemiesTotal = 0;
     DungeonGame::pistol->Reset();
 
     MoveTo(864.0f, 640.0f);
@@ -233,8 +234,16 @@ void Player::Update()
     switch (state)
     {
     case PLAYERMOVE:
-        hSpd = Scripts::lengthdir_x(spd, spdDir);
-        vSpd = Scripts::lengthdir_y(spd, spdDir);
+        if(!goingTo)
+        {
+            hSpd = Scripts::lengthdir_x(spd, spdDir);
+            vSpd = Scripts::lengthdir_y(spd, spdDir);
+        }
+        else
+        {
+            hSpd = 0.0f;
+            vSpd = 0.0f;
+        }
         break;
 
     case PLAYERHIT:

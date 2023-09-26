@@ -97,7 +97,7 @@ void Bee::Update()
 		state = CHOOSESTATE;
 	}
 
-	if (!hit && Scripts::distance_to_object(this, DungeonGame::player) <= 150.0f)
+	if (!hit && Scripts::distance_to_object(this, DungeonGame::player) <= 350.0f)
 		state = ATTACKING;
 
 	if (!hit && DungeonGame::player->X() > x)

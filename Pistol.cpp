@@ -62,7 +62,7 @@ void Pistol::Handed()
 
 	if (timer->Elapsed() >= 0.5f)
 	{
-		if (window->KeyPress(VK_LBUTTON) && ammo > 0)
+		if (window->KeyPress(VK_LBUTTON) && ammo > 0 && DungeonGame::player->state != PLAYERDEAD)
 		{
 			timer->Reset();
 			ammo -= 1;
