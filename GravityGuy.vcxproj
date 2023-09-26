@@ -161,6 +161,7 @@
     <ClCompile Include="BugHole.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="ContinuedScreen.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="BugHole.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Coin.h" />
+    <ClInclude Include="ContinuedScreen.h" />
     <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="Bee.h" />
     <ClInclude Include="Door.h" />

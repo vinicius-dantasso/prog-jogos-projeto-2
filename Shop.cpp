@@ -1,6 +1,7 @@
 
 #include "Shop.h"
 #include "DungeonGame.h"
+#include "ContinuedScreen.h"
 
 Scene* Shop::scene = nullptr;
 
@@ -47,7 +48,7 @@ void Shop::Update()
 	if (DungeonGame::player->goingTo)
 	{
 		// Caso Player esteja indo para próximo nível
-		//DungeonGame::NextLevel<Level6>();
+		DungeonGame::NextLevel<ContinuedScreen>();
 	}
 	else
 	{
