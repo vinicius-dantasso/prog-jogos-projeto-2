@@ -43,9 +43,9 @@ void DungeonGame::Init()
     
     audio = new Audio();
     audio->Add(MUSIC, "Resources/BossTheme.wav");
-    audio->Volume(MUSIC, 0.30f);
+    audio->Volume(MUSIC, 0.25f);
 
-    audio->Add(TRANSITION, "Resources/sfxTeste.wav"); //COLOCAR UM EFEITO DE GENTE
+    audio->Add(TRANSITION, "Resources/sfxSelect.wav"); //COLOCAR UM EFEITO DE GENTE
 
     audio->Add(SHOTPLAYER, "Resources/sfxTiroPlayer.wav");
 
@@ -67,7 +67,14 @@ void DungeonGame::Init()
     audio->Add(BUGJUMP, "Resources/sfxBurrowAtacando.wav");
     audio->Volume(BUGJUMP, 0.8f);
 
+    audio->Add(GAMEOVER, "Resources/DeathTheme1.wav");
+    audio->Volume(GAMEOVER, 0.3f);
 
+    audio->Add(COIN, "Resources/sfxMoeda.wav");
+    audio->Volume(COIN, 0.75f);
+
+    audio->Add(OPENDOOR, "Resources/sfxPortaAbrida.wav");
+    audio->Volume(OPENDOOR, 0.75f);
 
     // bounding box não visível
     viewBBox = false;

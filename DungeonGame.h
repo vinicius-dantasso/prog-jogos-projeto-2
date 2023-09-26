@@ -27,7 +27,7 @@
 
 // ------------------------------------------------------------------------------
 
-enum Sounds {MENU, MUSIC, TRANSITION,
+enum Sounds {MENU, MUSIC, TRANSITION, GAMEOVER,
     SHOTPLAYER, SHOTENEMY,
     BOMBTHROW, 
     RELOAD,
@@ -35,7 +35,8 @@ enum Sounds {MENU, MUSIC, TRANSITION,
     HITPLAYER,
     HITENEMY,
     DASH, DEAD,
-    BUGCHASE, BUGJUMP
+    BUGCHASE, BUGJUMP,
+    OPENDOOR
     };
 
 

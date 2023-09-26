@@ -276,6 +276,8 @@ void Player::Update()
     {
         timer->Reset();
         state = PLAYERDEAD;
+        DungeonGame::audio->Stop(MUSIC);
+
     }
 
     // atualiza animação

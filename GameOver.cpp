@@ -9,6 +9,8 @@ void GameOver::Init()
 	title = new Sprite("Resources/GameOverTitle.png");
 	font = new Font("Resources/m5x7.png");
 	font->Spacing(85);
+
+	DungeonGame::audio->Play(GAMEOVER);
 }
 
 void GameOver::Finalize()
@@ -19,8 +21,12 @@ void GameOver::Finalize()
 
 void GameOver::Update()
 {
-	if (window->KeyPress(VK_RETURN))
+	if (window->KeyPress(VK_RETURN)){
+		DungeonGame::audio->Stop(GAMEOVER);
 		DungeonGame::NextLevel<Level0>();
+		DungeonGame::audio->Play(TRANSITION);
+		DungeonGame::audio->Play(MUSIC);
+	}
 
 	if (window->KeyDown(VK_ESCAPE))
 		window->Close();

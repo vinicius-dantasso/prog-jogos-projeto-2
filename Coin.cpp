@@ -30,6 +30,7 @@ void Coin::OnCollision(Object* obj)
 {
 	if (obj->Type() == PLAYER)
 	{
+		DungeonGame::audio->Play(COIN);
 		DungeonGame::coinTotal++;
 		DungeonGame::sceneMain->Delete(this, STATIC);
 	}

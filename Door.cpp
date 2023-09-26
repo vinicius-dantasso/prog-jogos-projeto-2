@@ -39,7 +39,10 @@ void Door::OnCollision(Object* obj)
 void Door::Update()
 {
 	if (type == DOOROPENNED && DungeonGame::enemiesTotal <= 0)
-		state = DOOROPEN;
+		if (state != DOOROPEN){ 
+			DungeonGame::audio->Play(OPENDOOR);
+			state =	DOOROPEN;
+		}
 
 	anim->Select(state);
 	anim->NextFrame();
