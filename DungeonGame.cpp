@@ -61,6 +61,13 @@ void DungeonGame::Init()
     audio->Add(RELOAD, "Resources/sfxRecarregarArma.wav");
     audio->Volume(RELOAD, 0.7f);
 
+    audio->Add(BUGCHASE, "Resources/sfxBurrowAndando.wav");
+    audio->Volume(BUGCHASE, 0.8f);
+    
+    audio->Add(BUGJUMP, "Resources/sfxBurrowAtacando.wav");
+    audio->Volume(BUGJUMP, 0.8f);
+
+
 
     // bounding box não visível
     viewBBox = false;

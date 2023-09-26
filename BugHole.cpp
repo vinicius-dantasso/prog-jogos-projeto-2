@@ -75,6 +75,8 @@ void BugHole::Draw()
 
 void BugHole::ChasingPlayer()
 {
+	DungeonGame::audio->Play(BUGCHASE, true);
+
 	float dir = Scripts::point_direction(x, y, destX, destY);
 	hSpd = Scripts::lengthdir_x(spd, dir);
 	vSpd = Scripts::lengthdir_y(spd, dir);
@@ -82,6 +84,9 @@ void BugHole::ChasingPlayer()
 
 void BugHole::BeneathPlayer()
 {
+
+	DungeonGame::audio->Stop(BUGCHASE);
+
 	hSpd = 0.0f;
 	vSpd = 0.0f;
 

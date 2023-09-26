@@ -135,6 +135,9 @@ void Bug::Inside()
 
 void Bug::Jumping()
 {
+	
+	DungeonGame::audio->Play(BUGJUMP);
+
 	if(!canJump)
 		vSpd += grav;
 

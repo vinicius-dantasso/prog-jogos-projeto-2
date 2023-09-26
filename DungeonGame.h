@@ -34,7 +34,8 @@ enum Sounds {MENU, MUSIC, TRANSITION,
     DOOR,
     HITPLAYER,
     HITENEMY,
-    DASH, DEAD
+    DASH, DEAD,
+    BUGCHASE, BUGJUMP
     };
 
 
