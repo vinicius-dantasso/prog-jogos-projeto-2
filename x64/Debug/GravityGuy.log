@@ -1,3 +1,62 @@
-﻿  Bee.cpp
+﻿  compilation object save succeeded; see C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Shaders\Pixel.cso
+  compilation object save succeeded; see C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Shaders\Vertex.cso
+  Animation.cpp
+  Audio.cpp
+  Bee.cpp
+  Bomb.cpp
+  Bug.cpp
+  BugHole.cpp
+  Bullet.cpp
+  Coin.cpp
+  DebugLevel.cpp
 C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Bee.cpp(93,20): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+  Door.cpp
+  Enemy.cpp
+  Engine.cpp
+  Floor.cpp
+  Font.cpp
+  Game.cpp
+  GameOver.cpp
+  Geometry.cpp
+  Graphics.cpp
+  DungeonGame.cpp
+  Gui.cpp
+  Heart.cpp
+  Image.cpp
+  Level0.cpp
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Enemy.cpp(38,16): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Enemy.cpp(39,16): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Enemy.cpp(87,11): warning C4244: 'return': conversão de 'float' para 'int', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Enemy.cpp(93,11): warning C4244: 'return': conversão de 'float' para 'int', possível perda de dados
+  Level1.cpp
+  Level2.cpp
+  Level3.cpp
+  Level4.cpp
+  Level5.cpp
+  Mage.cpp
+  MenuScreen.cpp
+  Object.cpp
+  Pistol.cpp
+  Player.cpp
+  Renderer.cpp
+  Scene.cpp
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Mage.cpp(107,20): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+  Scripts.cpp
+  Shop.cpp
+  Sign.cpp
+  Sound.cpp
+  Sprite.cpp
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Player.cpp(176,12): warning C4804: '-': uso não seguro de tipo 'bool' em operação
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Player.cpp(177,12): warning C4804: '-': uso não seguro de tipo 'bool' em operação
+  Texture.cpp
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Scripts.cpp(10,14): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Scripts.cpp(16,14): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\GravityGuy\Scripts.cpp(26,16): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+  TileSet.cpp
+  Timer.cpp
+  Transition.cpp
+  Trap.cpp
+  Wall.cpp
+  Window.cpp
+  WorldBuilder.cpp
   GravityGuy.vcxproj -> C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 2\GravityGuy\x64\Debug\GravityGuy.exe

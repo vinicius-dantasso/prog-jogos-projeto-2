@@ -111,7 +111,7 @@ void Mage::Update()
 		state = CHOOSESTATE;
 	}
 
-	if (!hit && Scripts::distance_to_object(this, DungeonGame::player) <= 300.0f)
+	if (!hit && Scripts::distance_to_object(this, DungeonGame::player) <= 500.0f)
 		state = ATTACKING;
 
 	if (state == ATTACKING && !hit)
