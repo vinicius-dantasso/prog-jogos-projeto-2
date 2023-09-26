@@ -206,6 +206,9 @@ void Mage::Attacking()
 	if (castCharge >= cast)
 	{
 		castCharge = 0;
+
+		DungeonGame::audio->Play(SHOTENEMY);
+
 		DungeonGame::bullet = new Bullet(x, y, MAGICSHOT, MAGIC);
 		DungeonGame::bullet->Shot(true);
 		DungeonGame::sceneMain->Add(DungeonGame::bullet, MOVING);
