@@ -76,6 +76,9 @@ void DungeonGame::Init()
     audio->Add(OPENDOOR, "Resources/sfxPortaAbrida.wav");
     audio->Volume(OPENDOOR, 0.75f);
 
+    audio->Add(SHOTENEMY, "Resources/sfxTiroInimigo.wav");
+    audio->Volume(SHOTENEMY, 0.9f);
+
     // bounding box não visível
     viewBBox = false;
 
