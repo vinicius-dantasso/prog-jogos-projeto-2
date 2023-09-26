@@ -17,11 +17,20 @@
 #include "Game.h"
 #include "Audio.h"
 #include "Player.h"
+#include "Pistol.h"
+#include "Bullet.h"
 #include "Resources.h"
+#include "Scene.h"
+#include "WorldBuilder.h"
+#include "Gui.h"
+#include "Bomb.h"
 
 // ------------------------------------------------------------------------------
 
 enum Sounds {MENU, MUSIC, TRANSITION};
+enum ObjectsToCollide {PLAYER, WALL, HWALL, VWALL, BULLET, 
+    MAGIC, TRAP, ENEMY, BUGHOLE, BOMB, 
+    DOORCLOSED, DOOROPENNED, COIN};
 
 // ------------------------------------------------------------------------------
 
@@ -29,11 +38,20 @@ class DungeonGame : public Game
 {
 private:
     static Game * level;            // nível atual do jogo
-   
 
 public:
-    static Player * player;         // jogador 
+    static Player * player;         // jogador
+    static Pistol * pistol;         // arma
+    static Bullet * bullet;         // tiro
     static Audio * audio;           // sistema de áudio
+    static Scene * sceneMain;
+    static Gui * gui;
+    static Bomb* bomb;
+
+    static int floorNum;
+    static int enemiesTotal;
+    static int coinTotal;
+    static bool onShop;
     static bool viewBBox;           // estado da bounding box
 
     void Init();                    // inicializa jogo

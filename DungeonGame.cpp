@@ -11,9 +11,12 @@
 
 #include "Engine.h"
 #include "DungeonGame.h"
-#include "Home.h"
-#include "GameOver.h"
 #include "DebugLevel.h"
+#include "MenuScreen.h"
+#include "GameOver.h"
+#include "Level0.h"
+#include "Level1.h"
+#include "Shop.h"
 
 // ------------------------------------------------------------------------------
 
@@ -21,6 +24,15 @@
 Game*   DungeonGame::level = nullptr;
 Player* DungeonGame::player = nullptr;
 Audio*  DungeonGame::audio = nullptr;
+Pistol* DungeonGame::pistol = nullptr;
+Bullet* DungeonGame::bullet = nullptr;
+Scene*  DungeonGame::sceneMain = nullptr;
+Gui*    DungeonGame::gui = nullptr;
+Bomb*   DungeonGame::bomb = nullptr;
+int     DungeonGame::floorNum = 0;
+int     DungeonGame::enemiesTotal = 0;
+int     DungeonGame::coinTotal = 0;
+bool    DungeonGame::onShop = false;
 bool    DungeonGame::viewBBox = false;
 
 // ------------------------------------------------------------------------------
@@ -41,8 +53,14 @@ void DungeonGame::Init()
     // cria jogador
     player = new Player();
 
+    // cria arma
+    pistol = new Pistol();
+
+    // cria interface do usuario
+    gui = new Gui();
+
     // inicializa nível de abertura do jogo
-    level = new DebugLevel();
+    level = new MenuScreen();
     level->Init();
 }
 
@@ -88,7 +106,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura o motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(640, 480);
+    engine->window->Size(1280, 720);
     engine->window->Color(0, 0, 0);
     engine->window->Title("Dungeon Crawler");
     engine->window->Icon(IDI_ICON);

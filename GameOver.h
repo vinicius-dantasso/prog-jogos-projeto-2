@@ -1,36 +1,26 @@
-/**********************************************************************************
-// GameOver (Arquivo de Cabeçalho)
-// 
-// Criação:     14 Fev 2013
-// Atualização: 04 Set 2023
-// Compilador:  Visual C++ 2022
-//
-// Descrição:   Fim do jogo
-//              
-**********************************************************************************/
 
-#ifndef _GRAVITYGUY_GAMEOVER_H_
-#define _GRAVITYGUY_GAMEOVER_H_
-
-// ------------------------------------------------------------------------------
+#ifndef _GAME_OVER_H_
+#define _GAME_OVER_H_
 
 #include "Game.h"
 #include "Sprite.h"
-
-// ------------------------------------------------------------------------------
+#include "Font.h"
 
 class GameOver : public Game
 {
 private:
-    Sprite * title = nullptr;       // tela de fim
+	Sprite* title;
+	Font* font;
+
+	int frames = 0;
+	int maxFrames = 25;
+	bool canDraw = false;
 
 public:
-    void Init();                    // inicialização do nível
-    void Update();                  // lógica da tela de fim
-    void Draw();                    // desenho da tela
-    void Finalize();                // finalização do nível
+	void Init();
+	void Finalize();
+	void Update();
+	void Draw();
 };
 
-// ------------------------------------------------------------------------------
-
-#endif
+#endif // !_GAME_OVER_H_

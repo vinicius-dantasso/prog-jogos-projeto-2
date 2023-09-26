@@ -1,13 +1,13 @@
 
-#include "Level1.h"
+#include "Level0.h"
 #include "DungeonGame.h"
+#include "Level1.h"
 #include "GameOver.h"
-#include "Shop.h"
-#include "Level2.h"
+#include "Coin.h"
 
-Scene* Level1::scene = nullptr;
+Scene* Level0::scene = nullptr;
 
-void Level1::Init()
+void Level0::Init()
 {
 	// Instanciando cena do Level
 	scene = new Scene();
@@ -15,21 +15,32 @@ void Level1::Init()
 	// Cena Principal apontando para cena do Level
 	DungeonGame::sceneMain = scene;
 
-	// Adição do Player, Arma e Interface de Usuário à cena e sua posição inicial no novo Level
+	// Adição do Player, Arma e Interface de Usuário à cena
 	scene->Add(DungeonGame::player, MOVING);
-	DungeonGame::player->MoveTo(864.0f, 640.0f);
-
 	scene->Add(DungeonGame::pistol, STATIC);
 	scene->Add(DungeonGame::gui, STATIC);
+
+	// Instanciando builder para ler arquivo de imagem
+	builder = new WorldBuilder("Resources/Level_0.png");
 
 	// Setando variável do Player para passar para outro nível como False
 	DungeonGame::player->goingTo = false;
 
-	// Instanciando builder para ler arquivo de imagem
-	builder = new WorldBuilder("Resources/Level_1.png");
+	// Instanciando placas
+	sign = new Sign("Pressione F para interagir!");
+	scene->Add(sign, STATIC);
+	sign->MoveTo(window->CenterX() + 255.0f, window->CenterY() - 50.0f);
+
+	sign = new Sign("SPACE para usar dash!");
+	scene->Add(sign, STATIC);
+	sign->MoveTo(window->CenterX() + 100.0f, 60.0f);
+
+	sign = new Sign("G para usar bombas!");
+	scene->Add(sign, STATIC);
+	sign->MoveTo(window->CenterX() + 350.0f, 60.0f);
 }
 
-void Level1::Finalize()
+void Level0::Finalize()
 {
 	delete builder;
 
@@ -40,16 +51,16 @@ void Level1::Finalize()
 	delete scene;
 }
 
-void Level1::Update()
+void Level0::Update()
 {
-	if (DungeonGame::player->goingTo)
+	if(DungeonGame::player->goingTo)
 	{
-		// Caso Player esteja indo para próximo nível 
-		DungeonGame::NextLevel<Level2>();
-
+		// Caso Player esteja indo para próximo nível
+		DungeonGame::NextLevel<Level1>();
 	}
 	else if (DungeonGame::player->isDead)
 	{
+		// Caso Player morra
 		DungeonGame::NextLevel<GameOver>();
 		DungeonGame::player->Reset();
 	}
@@ -61,7 +72,7 @@ void Level1::Update()
 	}
 }
 
-void Level1::Draw()
+void Level0::Draw()
 {
 	scene->Draw();
 
