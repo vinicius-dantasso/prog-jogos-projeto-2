@@ -1,2 +1,4 @@
-﻿  Door.cpp
+﻿  Player.cpp
+C:\Users\Galdino\source\repos\Nova pasta\prog-jogos-projeto-2\Player.cpp(177,12): warning C4804: '-': uso não seguro de tipo 'bool' em operação
+C:\Users\Galdino\source\repos\Nova pasta\prog-jogos-projeto-2\Player.cpp(178,12): warning C4804: '-': uso não seguro de tipo 'bool' em operação
   GravityGuy.vcxproj -> C:\Users\Galdino\source\repos\Nova pasta\prog-jogos-projeto-2\x64\Debug\GravityGuy.exe

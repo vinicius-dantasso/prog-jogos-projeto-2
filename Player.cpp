@@ -271,7 +271,7 @@ void Player::Update()
     }
 
     Translate(hSpd * gameTime, vSpd * gameTime);
-
+    
     if (life <= 0 && state != PLAYERDEAD)
     {
         timer->Reset();
