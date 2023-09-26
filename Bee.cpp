@@ -150,6 +150,9 @@ void Bee::Draw()
 
 void Bee::Hit()
 {
+
+	DungeonGame::audio->Play(HITENEMY);
+
 	knockBackSpd = Scripts::lerp(knockBackSpd, 0.0f, 0.3f);
 
 	hSpd = Scripts::lengthdir_x(knockBackSpd, knockBackDir);

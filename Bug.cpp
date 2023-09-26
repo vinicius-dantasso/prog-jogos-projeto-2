@@ -77,6 +77,7 @@ void Bug::OnCollision(Object* obj)
 
 	if ((obj->Type() == BULLET || obj->Type() == BOMB) && state != INSIDE)
 	{
+		DungeonGame::audio->Play(HITENEMY);
 		life -= 1;
 		animState = BUGHIT;
 

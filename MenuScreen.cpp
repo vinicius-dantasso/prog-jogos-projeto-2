@@ -22,6 +22,7 @@ void MenuScreen::Update()
 	if (window->KeyDown(VK_RETURN)){
 		DungeonGame::audio->Play(TRANSITION, false);
 		DungeonGame::NextLevel<Level0>();
+		DungeonGame::audio->Play(MUSIC, true); //Precisa ser posto aqui, mas está funcionando basicamente torto. Precisa que o ultimo audio termine antes de começar esse
 	}
 
 	if (window->KeyDown(VK_ESCAPE))

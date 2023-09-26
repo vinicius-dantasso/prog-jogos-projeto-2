@@ -45,7 +45,7 @@ void DungeonGame::Init()
     audio->Add(MUSIC, "Resources/BossTheme.wav");
     audio->Volume(MUSIC, 0.30f);
 
-    audio->Add(TRANSITION, "Resources/sfxTeste.wav");
+    audio->Add(TRANSITION, "Resources/sfxTeste.wav"); //COLOCAR UM EFEITO DE GENTE
 
     audio->Add(SHOTPLAYER, "Resources/sfxTiroPlayer.wav");
 
@@ -54,8 +54,13 @@ void DungeonGame::Init()
 
     audio->Add(BOMBTHROW, "Resources/sfxBomba.wav");
 
-    audio->Play(MUSIC, true);
-    
+    audio->Add(HITPLAYER, "Resources/sfxHit.wav");
+
+    audio->Add(HITENEMY, "Resources/sfxEnemyHit.wav");
+
+    audio->Add(RELOAD, "Resources/sfxRecarregarArma.wav");
+    audio->Volume(RELOAD, 0.7f);
+
 
     // bounding box não visível
     viewBBox = false;

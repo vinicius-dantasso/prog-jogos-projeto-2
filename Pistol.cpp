@@ -73,8 +73,10 @@ void Pistol::Handed()
 		}
 	}
 
-	if (ammo <= 0 && timer->Elapsed(2.0f))
+	if (ammo <= 0 && timer->Elapsed(2.0f)){
+		DungeonGame::audio->Play(RELOAD);
 		ammo = 20;
+	}
 
 	float dir = Scripts::point_direction(DungeonGame::player->X(), DungeonGame::player->Y(), window->MouseX(), window->MouseY());
 	float xx = Scripts::lengthdir_x(30, dir);

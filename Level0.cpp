@@ -38,6 +38,7 @@ void Level0::Init()
 	sign = new Sign("G para usar bombas!");
 	scene->Add(sign, STATIC);
 	sign->MoveTo(window->CenterX() + 350.0f, 60.0f);
+
 }
 
 void Level0::Finalize()

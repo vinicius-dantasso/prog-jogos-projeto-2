@@ -210,7 +210,6 @@ void Player::Update()
     {
         timer->Reset();
         state = PLAYERDASH;
-        DungeonGame::audio->Play(DASH);
     }
 
     if (state == PLAYERDASH && timer->Elapsed(0.2f))
@@ -294,6 +293,10 @@ void Player::Draw()
 
 void Player::Hit()
 {
+
+    DungeonGame::audio->Play(HITPLAYER);
+
+
     knockBackSpd = Scripts::lerp(knockBackSpd, 0.0f, 0.3f);
 
     hSpd = Scripts::lengthdir_x(knockBackSpd, knockBackDir);
@@ -310,6 +313,9 @@ void Player::Hit()
 
 void Player::Dash()
 {
+
+    DungeonGame::audio->Play(DASH);
+
     if (hDir > 0 && vDir > 0)
         dashDir = Scripts::point_direction(x, y, x + 1.0f, y + 1.0f);
     else if (hDir > 0 && vDir < 0)
