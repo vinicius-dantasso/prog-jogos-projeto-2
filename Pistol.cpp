@@ -69,6 +69,7 @@ void Pistol::Handed()
 			DungeonGame::bullet = new Bullet(x, y, BULLETSHOT, BULLET);
 			DungeonGame::bullet->Shot(true);
 			DungeonGame::sceneMain->Add(DungeonGame::bullet, MOVING);
+			DungeonGame::audio->Play(SHOTPLAYER, false);
 		}
 	}
 

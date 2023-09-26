@@ -29,10 +29,11 @@
 
 enum Sounds {MENU, MUSIC, TRANSITION,
     SHOTPLAYER, SHOTENEMY,
+    BOMBTHROW, 
     DOOR,
     HITPLAYER,
     HITENEMY,
-    DEAD
+    DASH, DEAD
     };
 
 

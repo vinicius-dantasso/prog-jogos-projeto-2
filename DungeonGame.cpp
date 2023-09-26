@@ -43,10 +43,18 @@ void DungeonGame::Init()
     
     audio = new Audio();
     audio->Add(MUSIC, "Resources/BossTheme.wav");
+    audio->Volume(MUSIC, 0.30f);
+
     audio->Add(TRANSITION, "Resources/sfxTeste.wav");
-    
-    
-    audio->Play(MENU, true);
+
+    audio->Add(SHOTPLAYER, "Resources/sfxTiroPlayer.wav");
+
+    audio->Add(DASH, "Resources/sfxDash.wav"); //PRECISA MUDAR O EFEITO, ESSE AQUI TA SE MISTURANDO MUITO COM O AUDIO
+    audio->Volume(DASH, 0.5f);
+
+    audio->Add(BOMBTHROW, "Resources/sfxBomba.wav");
+
+    audio->Play(MUSIC, true);
     
 
     // bounding box não visível

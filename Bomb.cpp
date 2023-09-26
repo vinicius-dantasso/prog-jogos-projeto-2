@@ -26,8 +26,10 @@ Bomb::Bomb(float posX, float posY, int initialState)
 	type = -1;
 	state = initialState;
 
-	if (state == DROPPED)
+	if (state == DROPPED){
 		timer->Start();
+		DungeonGame::audio->Play(BOMBTHROW);
+	}
 
 	MoveTo(posX, posY);
 	BBox(new Circle(50));

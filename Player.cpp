@@ -210,6 +210,7 @@ void Player::Update()
     {
         timer->Reset();
         state = PLAYERDASH;
+        DungeonGame::audio->Play(DASH);
     }
 
     if (state == PLAYERDASH && timer->Elapsed(0.2f))
